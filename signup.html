@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="main--signup">
+      <header class="header--signup">
+        <img src="./assets/shared/logo.svg" alt="logo" />
+      </header>
+      <div class="main__wrapper--signup">
+        <article class="article--signup">
+          <div>
+            <h1>Work smarter. Save time.</h1>
+            <p class="aricle__paragraph--signup">
+              Easily manage your projects. Get on the list and receive in-app
+              perks available only to early subscribers. We are moving into
+              final development and getting ready for official launch soon.
+            </p>
+          </div>
+          <div class="footer__clock footer__clock--signup">
+            <h3 class="signup__headline">Coming <span>4 Nov 2022</span></h3>
+            <div class="footer__clock__timer">
+              <div
+                class="footer__clock__timer__wrapper footer__clock__timer--signup"
+              >
+                <p
+                  class="footer__clock__timer__numbers footer__clock__timer__numbers--light-blue"
+                  id="days"
+                >
+                  00
+                </p>
+                <p>Days</p>
+              </div>
+
+              <div
+                class="footer__clock__timer__wrapper footer__clock__timer--signup"
+              >
+                <p
+                  class="footer__clock__timer__numbers footer__clock__timer__numbers--light-blue"
+                  id="hours"
+                >
+                  00
+                </p>
+                <p>Hours</p>
+              </div>
+              <div
+                class="footer__clock__timer__wrapper footer__clock__timer--signup"
+              >
+                <p
+                  class="footer__clock__timer__numbers footer__clock__timer__numbers--light-blue"
+                  id="minutes"
+                >
+                  00
+                </p>
+                <p>Minutes</p>
+              </div>
+              <div
+                class="footer__clock__timer__wrapper footer__clock__timer--signup"
+              >
+                <p
+                  class="footer__clock__timer__numbers footer__clock__timer__numbers--light-blue"
+                  id="second"
+                >
+                  00
+                </p>
+                <p>Seconds</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <footer class="footer--signup">
+          <form method="post">
+            <input type="text" placeholder="Name" name="" id="" />
+            <input
+              type="email"
+              name="eamilInput"
+              id="emailInput"
+              placeholder="Email address"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              required
+              ;
+            />
+            <div class="footer__select--wrapper">
+              <select name="pack" id="pack">
+                <option style="padding: 2rem" value="basic">
+                  Basic Pack <span class="price">Free</span>
+                </option>
+                <option value="pro">
+                  Pro Pack <span class="price">$9.99</span>
+                </option>
+                <option value="ultimate">
+                  Ultimate Pack <span class="price">$19.99</span>
+                </option>
+              </select>
+            </div>
+            <input placeholder="Phone Number" type="number" name="" id="" />
+            <input placeholder="Company" type="text" name="" id="" />
+
+            <button class="btn--blue btn--big">Get on the list</button>
+          </form>
+        </footer>
+      </div>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>

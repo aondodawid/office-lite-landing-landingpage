@@ -1,0 +1,101 @@
+/**
+ * Clock
+ */
+
+const finishDate = new Date(2022, 10, 3, 10);
+
+const date = {
+  days: document.getElementById("days"),
+  seconds: document.getElementById("second"),
+  minutes: document.getElementById("minutes"),
+  hours: document.getElementById("hours"),
+};
+
+function calculateTimeLetf(timeDiference, date) {
+  const daysLeft = Math.floor(timeDiference / 24 / 60 / 60 / 1000);
+
+  const hoursLeft = Math.floor(
+    (timeDiference - daysLeft * 24 * 60 * 60 * 1000) / 60 / 60 / 1000
+  );
+
+  const minutesLeft = Math.floor(
+    (timeDiference -
+      daysLeft * 24 * 60 * 60 * 1000 -
+      hoursLeft * 60 * 60 * 1000) /
+      60 /
+      1000
+  );
+
+  const secondsLeft = Math.round(
+    (timeDiference -
+      daysLeft * 24 * 60 * 60 * 1000 -
+      hoursLeft * 60 * 60 * 1000 -
+      minutesLeft * 60 * 1000) /
+      1000
+  );
+  switch (date) {
+    case "days":
+      return daysLeft;
+      break;
+    case "hours":
+      return hoursLeft;
+      break;
+    case "minutes":
+      return minutesLeft;
+      break;
+    case "seconds":
+      return secondsLeft;
+      break;
+  }
+}
+
+function updateTimeLeft() {
+  const currentTime = Date.now();
+
+  const timeDiference = finishDate - currentTime;
+
+  date.days.textContent = calculateTimeLetf(timeDiference, "days");
+  date.hours.textContent = calculateTimeLetf(timeDiference, "hours");
+  date.minutes.textContent = calculateTimeLetf(timeDiference, "minutes");
+  date.seconds.textContent = calculateTimeLetf(timeDiference, "seconds");
+}
+
+setInterval(updateTimeLeft, 1000);
+
+/**
+ * Email Validation
+ */
+
+const input = document.getElementById("emailInput");
+const email = document.querySelector(".email");
+const form = document.querySelector("form");
+
+input.addEventListener("invalid", (event) => {
+  event.preventDefault();
+  input.classList.add("error");
+});
+
+input.addEventListener("focus", (event) => {
+  event.preventDefault();
+  input.classList.remove("error");
+});
+
+/**
+ * Select toogle styles
+ */
+
+const select = document.querySelector("select");
+
+function toogleIn() {
+  this.style.backgroundImage = "none";
+  document.documentElement.style.setProperty("--visibility", "visible");
+  window.addEventListener("click", toogleOut);
+}
+
+function toogleOut() {
+  select.blur();
+  select.style.backgroundImage = "url(./assets/sign-up/icon-arrow-down.svg)";
+  document.documentElement.style.setProperty("--visibility", "hidden");
+  window.removeEventListener("click", toogleOut);
+}
+select.addEventListener("focusin", toogleIn);
