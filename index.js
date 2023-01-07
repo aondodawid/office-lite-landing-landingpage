@@ -1,101 +1,46 @@
-/**
- * Clock
- */
+import timer from "./timer.js";
+import createCustomSelect from "./custom-select.js";
 
-const finishDate = new Date(2022, 10, 3, 10);
+timer();
+createCustomSelect();
 
-const date = {
-  days: document.getElementById("days"),
-  seconds: document.getElementById("second"),
-  minutes: document.getElementById("minutes"),
-  hours: document.getElementById("hours"),
-};
-
-function calculateTimeLetf(timeDiference, date) {
-  const daysLeft = Math.floor(timeDiference / 24 / 60 / 60 / 1000);
-
-  const hoursLeft = Math.floor(
-    (timeDiference - daysLeft * 24 * 60 * 60 * 1000) / 60 / 60 / 1000
-  );
-
-  const minutesLeft = Math.floor(
-    (timeDiference -
-      daysLeft * 24 * 60 * 60 * 1000 -
-      hoursLeft * 60 * 60 * 1000) /
-      60 /
-      1000
-  );
-
-  const secondsLeft = Math.round(
-    (timeDiference -
-      daysLeft * 24 * 60 * 60 * 1000 -
-      hoursLeft * 60 * 60 * 1000 -
-      minutesLeft * 60 * 1000) /
-      1000
-  );
-  switch (date) {
-    case "days":
-      return daysLeft;
-      break;
-    case "hours":
-      return hoursLeft;
-      break;
-    case "minutes":
-      return minutesLeft;
-      break;
-    case "seconds":
-      return secondsLeft;
-      break;
-  }
-}
-
-function updateTimeLeft() {
-  const currentTime = Date.now();
-
-  const timeDiference = finishDate - currentTime;
-
-  date.days.textContent = calculateTimeLetf(timeDiference, "days");
-  date.hours.textContent = calculateTimeLetf(timeDiference, "hours");
-  date.minutes.textContent = calculateTimeLetf(timeDiference, "minutes");
-  date.seconds.textContent = calculateTimeLetf(timeDiference, "seconds");
-}
-
-setInterval(updateTimeLeft, 1000);
-
-/**
- * Email Validation
- */
-
-const input = document.getElementById("emailInput");
+const SignUpPage = document.getElementById("signUp");
+const emailContainer = document.getElementById("emailContainer");
+const emailInput = document.getElementById("emailInput");
 const email = document.querySelector(".email");
 const form = document.querySelector("form");
+const name = document.getElementById("name");
+// const form = document.getElementById('send-data')
 
-input.addEventListener("invalid", (event) => {
+emailInput.addEventListener("invalid", (event) => {
   event.preventDefault();
-  input.classList.add("error");
+  emailInput.classList.add("error");
+  emailContainer.classList.add("error-container");
 });
 
-input.addEventListener("focus", (event) => {
-  event.preventDefault();
-  input.classList.remove("error");
+emailInput.addEventListener("focus", () => {
+  emailContainer.classList.remove("error");
+  emailContainer.classList.remove("error-container");
 });
 
-/**
- * Select toogle styles
- */
-
-const select = document.querySelector("select");
-
-function toogleIn() {
-  this.style.backgroundImage = "none";
-  document.documentElement.style.setProperty("--visibility", "visible");
-  window.addEventListener("click", toogleOut);
-}
-
-function toogleOut() {
-  select.blur();
-  select.style.backgroundImage = "url(./assets/sign-up/icon-arrow-down.svg)";
-  document.documentElement.style.setProperty("--visibility", "hidden");
-  window.removeEventListener("click", toogleOut);
-}
-select.addEventListener("focusin", toogleIn);
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  SignUpPage.style.background = "#fff";
+  SignUpPage.innerHTML = `
+    <header class="header--signup">
+      <img src="./assets/shared/logo.svg" alt="logo" />
+    </header>
+    <div  style="text-align: center; font-size: 1.5rem">
+      <h1 style="font-size:2.5rem;margin-bottom:1rem">Thank's for join to our community!</h1>
+      <p class="aricle__paragraph--aftersignup">
+        We are contact with You as soon as it is possible
+        your sign up data is:
+      </p>
+      <p class="aricle__paragraph--aftersignup "><b>Name:</b> ${name.value} </p>
+      <p class="aricle__paragraph--aftersignup "><b>Email:</b> ${emailInput.value} </p>
+      <p class="aricle__paragraph--aftersignup "><b>Your program:</b> ${document.forms["send-data"].elements[2].value} </p>
+      <p class="aricle__paragraph--aftersignup "><b>Your program:</b> ${document.forms["send-data"].elements[3].value} </p>
+      <p class="aricle__paragraph--aftersignup "><b>Your program:</b> ${document.forms["send-data"].elements[4].value} </p>
+    </div>
+  `;
+});

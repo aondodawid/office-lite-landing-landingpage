@@ -2,13 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+    />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <title>Document</title>
+    <title>SignUp</title>
   </head>
   <body>
-    <main class="main--signup">
+    <main id="signUp" class="main--signup">
       <header class="header--signup">
         <img src="./assets/shared/logo.svg" alt="logo" />
       </header>
@@ -74,59 +78,30 @@
           </div>
         </article>
         <footer class="footer--signup">
-          <form method="post">
-            <input type="text" placeholder="Name" />
-            <input
-              type="email"
-              name="eamilInput"
-              id="emailInput"
-              placeholder="Email address"
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-              required
-              ;
-            />
-            <!-- <div class="footer__select--wrapper">
-              <select name="pack" id="pack">
-                <option style="padding: 2rem" value="basic">
-                  Basic Pack <span class="price">Free</span>
+          <form id="send-data">
+            <input type="text" placeholder="Name" id="name" />
+            <div id="emailContainer">
+              <input
+                type="email"
+                name="eamilInput"
+                id="emailInput"
+                placeholder="Email address"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                required=""
+              />
+            </div>
+            <div class="custom-select" id="custom-select">
+              <select id="seleted">
+                <option value="Basic Pack">
+                  Basic Pack <span class="last-word">Free</span>
                 </option>
-                <option value="pro">
-                  Pro Pack <span class="price">$9.99</span>
+                <option value="Pro Pack">
+                  Pro Pack <span class="last-word">$9.99</span>
                 </option>
-                <option value="ultimate">
-                  Ultimate Pack <span class="price">$19.99</span>
+                <option value="Ultimate Pack">
+                  Ultimate Pack <span class="last-word">$19.99</span>
                 </option>
               </select>
-            </div> -->
-
-            <div class="select-box">
-              <div class="option">
-                <input type="radio" class="radio" id="basic" name="category" />
-                <label for="basic">
-                  Basic Pack <span class="price">Free</span>
-                </label>
-              </div>
-
-              <div class="option">
-                <input type="radio" class="radio" id="pro" name="category" />
-                <label for="pro"
-                  >Pro Pack <span class="price">$9.99</span>
-                </label>
-              </div>
-
-              <div class="option">
-                <input
-                  type="radio"
-                  class="radio"
-                  id="ultimate"
-                  name="category"
-                />
-                <label for="ultimate"
-                  >Ultimate Pack <span class="price">$19.99</span>
-                </label>
-              </div>
-
-              <div class="selected">Select Video Category</div>
             </div>
 
             <input placeholder="Phone Number" type="number" name="" id="" />
@@ -137,6 +112,6 @@
         </footer>
       </div>
     </main>
-    <script src="index.js"></script>
+    <script src="index.js" type="module"></script>
   </body>
 </html>
