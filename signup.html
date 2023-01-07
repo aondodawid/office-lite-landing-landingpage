@@ -75,7 +75,7 @@
         </article>
         <footer class="footer--signup">
           <form method="post">
-            <input type="text" placeholder="Name" name="" id="" />
+            <input type="text" placeholder="Name" />
             <input
               type="email"
               name="eamilInput"
@@ -85,7 +85,7 @@
               required
               ;
             />
-            <div class="footer__select--wrapper">
+            <!-- <div class="footer__select--wrapper">
               <select name="pack" id="pack">
                 <option style="padding: 2rem" value="basic">
                   Basic Pack <span class="price">Free</span>
@@ -97,7 +97,38 @@
                   Ultimate Pack <span class="price">$19.99</span>
                 </option>
               </select>
+            </div> -->
+
+            <div class="select-box">
+              <div class="option">
+                <input type="radio" class="radio" id="basic" name="category" />
+                <label for="basic">
+                  Basic Pack <span class="price">Free</span>
+                </label>
+              </div>
+
+              <div class="option">
+                <input type="radio" class="radio" id="pro" name="category" />
+                <label for="pro"
+                  >Pro Pack <span class="price">$9.99</span>
+                </label>
+              </div>
+
+              <div class="option">
+                <input
+                  type="radio"
+                  class="radio"
+                  id="ultimate"
+                  name="category"
+                />
+                <label for="ultimate"
+                  >Ultimate Pack <span class="price">$19.99</span>
+                </label>
+              </div>
+
+              <div class="selected">Select Video Category</div>
             </div>
+
             <input placeholder="Phone Number" type="number" name="" id="" />
             <input placeholder="Company" type="text" name="" id="" />
 
