@@ -20,7 +20,7 @@
         <article class="article--signup">
           <div>
             <h1>Work smarter. Save time.</h1>
-            <p class="aricle__paragraph--signup">
+            <p class="article__paragraph--signup">
               Easily manage your projects. Get on the list and receive in-app
               perks available only to early subscribers. We are moving into
               final development and getting ready for official launch soon.
@@ -79,19 +79,19 @@
         </article>
         <footer class="footer--signup">
           <form id="send-data">
-            <input type="text" placeholder="Name" id="name" />
+            <input type="text" placeholder="Name" data-type="Name" />
             <div id="emailContainer">
               <input
                 type="email"
-                name="eamilInput"
                 id="emailInput"
                 placeholder="Email address"
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                 required=""
+                data-type="Email"
               />
             </div>
             <div class="custom-select" id="custom-select">
-              <select id="seleted">
+              <select id="seleted" data-type="Program">
                 <option value="Basic Pack">
                   Basic Pack <span class="last-word">Free</span>
                 </option>
@@ -103,10 +103,12 @@
                 </option>
               </select>
             </div>
-
-            <input placeholder="Phone Number" type="number" name="" id="" />
-            <input placeholder="Company" type="text" name="" id="" />
-
+            <input
+              placeholder="Phone Number"
+              type="number"
+              data-type="Number"
+            />
+            <input placeholder="Company" type="text" data-type="Company" />
             <button class="btn--blue btn--big">Get on the list</button>
           </form>
         </footer>

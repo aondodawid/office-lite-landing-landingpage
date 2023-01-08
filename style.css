@@ -515,6 +515,11 @@ input[type=number] {
   opacity: 0.8;
 }
 
+.paragraph-container {
+  margin: 0 auto;
+  max-width: 750px;
+}
+
 /* Custom dropdown select end */
 
 
@@ -609,14 +614,15 @@ input[type=number] {
     padding: 0;
   }
 
-  .aricle__paragraph--signup {
+  .article__paragraph--signup {
     padding: 0 4.625rem;
   }
 
 
-  .aricle__paragraph--aftersignup {
+  .article__paragraph--aftersignup {
     padding: 0 4.625rem;
     font-size: 2rem;
+    text-align: left;
   }
 
   .footer__clock {
@@ -702,7 +708,7 @@ input[type=number] {
 
   .main--signup {
     padding: 0 10% 24%;
-    height: 100%;
+    height: 100vh;
     background: linear-gradient(to left, var(--secondary-color) 21%, transparent 20%) no-repeat;
   }
 
